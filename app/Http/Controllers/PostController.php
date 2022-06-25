@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Disease;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +16,8 @@ class PostController extends Controller
     }
     public function create()
     {
-        return view('admin.posts.create');
+        $disease = Disease::all();
+        return view('admin.posts.create', compact('disease'));
     }
 
     public function store(Request $request)
@@ -32,6 +34,7 @@ class PostController extends Controller
         Post::create([
             'image' => $image->hashName(),
             'title' => $request->title,
+            'disease_id' => $request->disease_id,
             'content' => $request->content,
         ]);
 

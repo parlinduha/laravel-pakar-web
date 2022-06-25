@@ -10,8 +10,14 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
+        'disease_id',
         'image',
         'title',
         'content',
     ];
+
+    public function disease()
+    {
+        return $this->belongsTo(Disease::class);
+    }
 }

@@ -17,6 +17,23 @@
                         @csrf
 
                         <div class="form-group">
+                            <label class="font-weight-bold">KATEGORI</label>
+                            <select class="form-select form-control @error('disease_id') is-invalid @enderror" name="disease_id"  aria-label="Default select example">
+                                <option selected>Pilih Kategori</option>
+                                @foreach ( $disease as $dis )
+                                <option value={{$dis->id}}> {{$dis->name_disease}}</option>
+                                @endforeach
+                              </select>
+                            <!-- error message untuk title -->
+                            @error('disease_id')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            
+                        </div>
+
+                        <div class="form-group">
                             <label class="font-weight-bold">GAMBAR</label>
                             <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
                         
