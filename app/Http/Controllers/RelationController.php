@@ -24,9 +24,10 @@ class RelationController extends Controller
 
     public function store(Request $request)
     {
-        // if (!empty) {
-        //     # code...
-        // }
+        $this->validate($request,[
+            'disease_id' => 'required',
+            'symptom_id' => 'required| unique:relations'
+        ]);
 
         Relation::create([
             'symptom_id' => $request->symptom_id,
