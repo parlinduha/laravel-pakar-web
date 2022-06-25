@@ -29,7 +29,7 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email}}</td>
                                     <td>{{ $user->created_at}}</td>
-                                    <td>{{ $user->update_at}}</td>
+                                    <td>{{ $user->updated_at}}</td>
                                     <td class="text-center">
                                             <button type="submit" class="mt-2 btn btn-sm btn-danger">HAPUS</button>
                                     </td>
