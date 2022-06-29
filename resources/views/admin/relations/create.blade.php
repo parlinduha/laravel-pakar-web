@@ -3,7 +3,7 @@
 @section('title', 'Posts')
 
 @section('content_header')
-    <h1>Relasi Forward Chaining</h1>
+    <h1>Tambah Relasi </h1>
 @stop
 
 @section('content')
@@ -12,14 +12,14 @@
         <div class="col-md-12">
             <div class="card border-0 shadow rounded">
                 <div class="card-body">
-                    <form action="{{ route('relations.store') }}" method="POST" enctype="multipart/form-data">
-                    
+                    <form action="{{ route('relations.update') }}" method="POST" enctype="multipart/form-data">
+                        @method('put')
                         @csrf
 
                         <div class="form-group">
                             <label class="font-weight-bold">DIAGNOSA</label>
-                            <select class="form-select form-control @error('disease_id') is-invalid @enderror" name="disease_id"  aria-label="Default select example">
-                                <option selected>Pilih Diagnosa</option>
+                            <select class="form-select form-control @error('disease_id') is-invalid @enderror" name="disease_id" value="{{ old('disease_id', $post->title) }}"  aria-label="Default select example">
+                                <option selected disabled>Pilih Diagnosa</option>
                                 @foreach ( $disease as $dis )
                                 <option value={{$dis->id}}> {{$dis->name_disease}}</option>
                                 @endforeach
@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <label class="font-weight-bold">GEJALA</label>
                             <select  class="form-select form-control @error('symptom_id') is-invalid @enderror" name="symptom_id"  aria-label="Default select example">
-                                <option selected>Pilih Gejala</option>
+                                <option selected disabled>Pilih Gejala</option>
                                 @foreach ( $symptom as $sym )
                                 <option value={{$sym->id}}> {{$sym->code_symptom}} {{$sym->name_symptom}}</option>
                                 @endforeach

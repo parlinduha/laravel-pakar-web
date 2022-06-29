@@ -10,11 +10,11 @@
 <div class="row">
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box">
-        <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+        <span class="info-box-icon bg-info"><i class="fas fa-users"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Messages</span>
-          <span class="info-box-number">1,410</span>
+          <span class="info-box-text">Users</span>
+          <span class="info-box-number">{{$users}}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -26,8 +26,8 @@
         <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Bookmarks</span>
-          <span class="info-box-number">410</span>
+          <span class="info-box-text">Diagnosa</span>
+          <span class="info-box-number">{{$diseases}}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -39,8 +39,8 @@
         <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Uploads</span>
-          <span class="info-box-number">13,648</span>
+          <span class="info-box-text">Gejala</span>
+          <span class="info-box-number">{{$symptoms}}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -52,8 +52,8 @@
         <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Likes</span>
-          <span class="info-box-number">93,139</span>
+          <span class="info-box-text">Relasi</span>
+          <span class="info-box-number">{{$relations}}</span>
         </div>
         <!-- /.info-box-content -->
       </div>

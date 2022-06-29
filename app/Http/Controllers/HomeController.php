@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Disease;
+use App\Models\Relation;
+use App\Models\Symptom;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin/home');
+        $users = User::count();
+        $diseases = Disease::count();
+        $symptoms = Symptom::count();
+        $relations = Relation::count();
+        return view('admin/home', compact('users','diseases','relations','symptoms'));
     }
 }

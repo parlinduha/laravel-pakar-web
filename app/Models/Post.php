@@ -16,6 +16,15 @@ class Post extends Model
         'content',
     ];
 
+    // public function sluggable()
+    // {
+    //     return [
+    //         'slug' => [
+    //             'source' => 'title'
+    //         ]
+    //         ];
+    // }
+
     public function disease()
     {
         return $this->belongsTo(Disease::class);

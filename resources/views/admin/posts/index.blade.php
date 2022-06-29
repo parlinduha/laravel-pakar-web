@@ -35,7 +35,7 @@
                                     </td>
                                     <td>{{ $post->title }}</td>
                                     <td>{{ $post->disease->name_disease }}</td>
-                                    <td>{!! $post->content !!}</td>
+                                    <td>{{  Str::limit($post->content, 100) }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                             <a href="{{ route('posts.edit', $post->id) }}" class=" btn btn-sm btn-primary">

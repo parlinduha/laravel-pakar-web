@@ -23,9 +23,9 @@
                         <table id="myTable" class="table table-bordered table-striped table-hover">
                             <thead>
                               <tr>
-                                <th scope="col">KODE GEJALA</th>
-                                <th scope="col">GEJALA</th>
-                                <th scope="col">DIAGNOSA</th>
+                                <th scope="col">Kode </th>
+                                <th scope="col">Gejala</th>
+                                <th scope="col">Diagnosa</th>
                                 <th scope="col">AKSI</th>
                               </tr>
                             </thead>

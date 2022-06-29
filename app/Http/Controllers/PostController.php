@@ -6,12 +6,13 @@ use App\Models\Disease;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Cviebrock\Eloquent\Sluggable\Services\SlugService;
 
 class PostController extends Controller
 {
     public function index() 
     {
-        $posts = Post::get();
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
         return view('admin/posts/index',compact('posts'));
     }
     public function create()
@@ -32,6 +33,7 @@ class PostController extends Controller
         $image->storeAs('public/posts', $image->hashName());
 
         Post::create([
+            // 'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
             'image' => $image->hashName(),
             'title' => $request->title,
             'disease_id' => $request->disease_id,
