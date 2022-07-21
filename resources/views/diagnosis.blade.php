@@ -10,13 +10,27 @@
           </div>
         </div>
         <div class="w-full px-2 flex flex-wrap justify-center  ">
-            <table class="table responsive">
+          <form action="">
+
+            <table id="myTable" class="table responsive table-bordered table-striped table-hover">
+              <thead>
                 <tr>
-                    <th><input type="checkbox"></th>
-                    <th>Kode Gejala</th>
-                    <th>Nama Gejala</th>
+                  <th><input type="checkbox"></th>
+                  <th>Kode</th>
+                  <th>Nama Gejala </th>
                 </tr>
+              </thead> 
+              <tbody>
+                @foreach ($relations as $relation)
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>{{ $relation->symptom->code_symptom }}</td>
+                  <td>{{ $relation->symptom->name_symptom }}</td>
+                </tr>
+                  @endforeach
+              </tbody> 
             </table>
+          </form>
       </div>
       </div>
     </section>

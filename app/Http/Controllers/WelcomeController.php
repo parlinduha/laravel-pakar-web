@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdatePasswordRequest;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class WelcomeController extends Controller
 {
@@ -26,5 +30,39 @@ class WelcomeController extends Controller
     {
         $post = Post::get();
         return view('welcome', compact('post'));
+    }
+
+    public function profile(Request $request)
+    {
+        return view ('profile.index',[
+            'user' => $request->user(),
+        ]);
+    }
+    public function upload_profile(Request $request)
+    {
+        if($request->hasFile('avatar')){
+            $filename = $request->avatar->getClientOriginalName();
+            $request->avatar->storeAs('profile',$filename,'public');
+            $request->user()->update(['avatar'=>$filename]);
+        }
+        Alert::success('Success', 'Avatar update successfully');
+        return redirect()->back();
+    }
+
+    public function profile_update()
+    {
+        return view('profile.update');
+    }
+    public function profile_password()
+    {
+        return view('profile.password');
+    }
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+        $request->user()->update([
+            'password' => Hash::make($request->get('password'))
+        ]);
+        Alert::success('Success', 'Password update successfully');
+        return redirect()->back();
     }
 }

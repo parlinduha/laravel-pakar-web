@@ -20,8 +20,13 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css"
   rel="stylesheet"
   />
+   <!-- datatable style -->
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+   <!-- bootstrap 4 css  -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color: silver">
     <header  class="bg-transparent   navbar-fixed top-0 left-0 w-full flex items-center z-10">
         <div class="container mx-auto">
           <div class="flex items-center  justify-between relative">
@@ -52,16 +57,18 @@
                     <a href="/basis-pengetahuan" class="text-base text-black py-2 mx-8 flex group-hover:text-blue-500">Basis Pengetahuan</a>
                   </li>
                   
-                  @if (Route::has('login')) 
                   <li class="group ">
-                      <li class="group text-base text-black py-2 mx-8 flex group-hover:text-blue-500">
-                        <svg class="mx-1 " xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                          </svg>
-                        {{ Auth::user()->name }} 
-                        {{-- <a href="/profile" class="text-base text-black py-2 mx-8 flex group-hover:text-blue-500">Profile</a> --}}
-                      </li>
+                    {{-- <li class="group text-base text-black py-2 mx-8 flex group-hover:text-blue-500"> --}}
+                      {{-- <svg class="mx-1 " xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                      </svg>
+                      {{ Auth::user()->name }}  --}}
+                      <a href="/profile" class="text-base text-black py-2 mx-8 flex group-hover:text-blue-500">Profile</a>
+                    </li>
+
+                    <li class="group ">
+                    @if (Route::has('login')) 
                     @auth
                     
                       <a class=" dark:text-gray-500 underline block text-base text-center font-semibold  text-white bg-slate-500 py-2 rounded-full px-8 mb-2 hover:shadow-lg hover:opacity-80 group-hover:text-blue-500" href="{{ route('logout') }}"
@@ -139,6 +146,27 @@
     
       <!-- MDB -->
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+       <!-- script tambahan  -->
+     <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+     <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+     <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js">
+     </script>
+ 
+     <!-- fungsi datatable -->
+     <script>
+         $(document).ready(function () {
+             $('#myTable').DataTable({
+              dom: 'Bfrtip',
+                 buttons: [
+                     'copy', 'csv', 'excel', 'pdf', 'print'
+                 ]
+             })
+         });
+ 
+     </script>
     
   </body>
 </html>

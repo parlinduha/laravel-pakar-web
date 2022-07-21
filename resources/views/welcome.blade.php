@@ -13,9 +13,10 @@
               menjadi pemenang lebih produktif</p>
             <a href="/diagnosis"
               class="text-base text-center font-semibold  text-white outline outline-offset-0 outline-cyan-400  bg-cyan-400 py-2 rounded-full px-8 mb-2 hover:shadow-lg hover:opacity-80 hover:text-blue-500 mr-5 ">Get
-              Stared</a>
+              Stared
+            </a>
             <a href="/basis-pengetahuan"
-              class="text-base text-center font-semibold  text-cyan-400 outline outline-offset-0 outline-cyan-400  py-2 rounded-full px-8 mb-2 hover:shadow-lg hover:opacity-80 hover:text-blue-500 transition duration-700 ease-in-out ">Learn
+              class="text-base text-center font-semibold text-zinc-200 outline outline-offset-0 outline-cyan-400  py-2 rounded-full px-8 mb-2 hover:shadow-lg hover:opacity-80 hover:text-blue-500 transition duration-700 ease-in-out ">Learn
               More</a>
           </div>
           <div class="w-full self-end px-4 lg:w-1/2">

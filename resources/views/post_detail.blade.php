@@ -22,7 +22,7 @@
                     <small class="text-muted ">{{$basis_pengetahuan->created_at}}</small> 
                     <small class="card-text mx-5"><strong>Kategori :</strong> {{$basis_pengetahuan->disease->name_disease}}</small>
                   </div>
-                  <p class="card-text">{{$basis_pengetahuan->content}}</p>
+                  <p class="card-text">{{ $basis_pengetahuan->content}}</p>
                   
                   </div>
               </div>

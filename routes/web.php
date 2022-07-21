@@ -38,3 +38,11 @@ Route::resource('basis-pengetahuan',\App\Http\Controllers\ProfileController::cla
 
 Route::get('admin/add',[StudentController::class,'index']);
 Route::post('admin/save',[StudentController::class,'save'])->name('student.save');
+
+Route::get('/profile',[App\Http\Controllers\WelcomeController::class,'profile'])->name('profile');
+Route::post('/profile/save',[App\Http\Controllers\WelcomeController::class,'upload_profile'])->name('save_profile');
+
+Route::get('/profile/update',[App\Http\Controllers\WelcomeController::class,'profile_update'])->name('profile_update');
+
+Route::get('/profile/password',[App\Http\Controllers\WelcomeController::class,'profile_password'])->name('profile_password');
+Route::patch('/updatePassword', [App\Http\Controllers\WelcomeController::class, 'updatePassword'])->name('updatePassword');

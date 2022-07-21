@@ -11,21 +11,25 @@
         </div>
         <div class="row">
             @forelse ( $posts as $post )
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3 ml-2" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="{{ Storage::url('public/posts/').$post->image }}" class="img-fluid rounded-start" alt="...">
+                    <img src="{{ Storage::url('public/posts/').$post->image }}" class="img-fluid rounded-start block" height="400px"  alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title"><a href="{{ route('basis-pengetahuan.show', $post->id) }}">{{$post->title}}</a></h5>
-                      Kategori :
-                      <a href="#" class="ml-5 card-text">{{$post->disease->name_disease}}</a>
-                      <p class="card-text">{{  Str::limit($post->content, 100) }}</p>
-                      <div class="flex">
-                          <p class="card-text ml-5"><small class="text-muted">{{$post->created_at}}</small></p>
+                      <p class="card-text">{{  Str::limit(($post->content), 100) }}</p>
+                      <div class="row flex">
+                        <div class="col-sm-6">
+                          <p class="card-text"><small class="text-muted">{{$post->created_at}}</small></p>
+                        </div>
+                        <div class="col-sm-6">
+                          <a href="#" class="card-text">{{$post->disease->name_disease}}</a>
+                        </div>
                       </div>
                     </div>
+                    
                   </div>
                 </div>
               </div>
