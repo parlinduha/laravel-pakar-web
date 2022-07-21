@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('nik')->nullable();
             $table->string('avatar')->default('man-student.png');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

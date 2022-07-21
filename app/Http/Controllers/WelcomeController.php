@@ -53,6 +53,18 @@ class WelcomeController extends Controller
     {
         return view('profile.update');
     }
+    public function update(Request $request)
+    {
+
+            $request->user()->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'nik' => $request->nik,
+            ]);
+            Alert::success('Success', 'Profile update successfully');
+            return redirect()->back();
+    }
+
     public function profile_password()
     {
         return view('profile.password');

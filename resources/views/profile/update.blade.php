@@ -30,7 +30,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-8 border">
+              <div class="col-sm-8 border mb-5">
                 <ul class="nav nav-tabs">
                   <li class="nav-item">
                     <a class="nav-link " href="/profile" aria-current="page" href="#">Beranda</a>
@@ -43,18 +43,30 @@
                   </li>
                 </ul>
                 
-                <div id="updateUser" class="mt-3">
-                  <form method="POST" >
-
-                    <div class="mb-2">
-                      <label for="exampleFormControlInput1" class="form-label">Full Name</label>
-                      <input type="text" disabled value="{{ Auth::user()->name }}"   name="name" @error('name')  is-invalid @enderror class="form-control" id="exampleFormControlInput1" placeholder="Full name">
-                    </div>
-                    <div class="mb-2">
-                      <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" disabled value="{{ Auth::user()->email }}"  name="email" @error('email')  is-invalid @enderror placeholder="name@example.com">
-                    </div>
-                  </form>
+                <div id="updateUser" class="mt-5">
+                    <form action="{{route('update')}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <div class="row mb-3">
+                            <label for="name" class="col-sm col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="name" class="form-control  @error('name')is-invalid @enderror" value="{{ old('name', Auth::user()->name) }}" placeholder="Fullname">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="nip" class="col-sm col-form-label">ID Pegawai</label>
+                            <div class="col-sm-10">
+                                <input type="text" disabled name="nik" class="form-control  @error('nik')is-invalid @enderror" value="{{ old('nik', Auth::user()->nik) }}" placeholder="Masukan ID Karyawan">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="email" class="col-sm col-form-label">Email</label>
+                            <div class="col-sm-10">
+                              <input type="text" name="email" class="form-control  @error('email')is-invalid @enderror" value="{{ old('email', Auth::user()->email) }}" placeholder="example@example.com">
+                            </div>
+                        </div> 
+                        <button type="submit" class="btn btn-primary mt-5">Update profile</button>
+                      </form>
                 </div>
               </div>
             </div>

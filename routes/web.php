@@ -43,6 +43,7 @@ Route::get('/profile',[App\Http\Controllers\WelcomeController::class,'profile'])
 Route::post('/profile/save',[App\Http\Controllers\WelcomeController::class,'upload_profile'])->name('save_profile');
 
 Route::get('/profile/update',[App\Http\Controllers\WelcomeController::class,'profile_update'])->name('profile_update');
+Route::put('/update', [App\Http\Controllers\WelcomeController::class, 'update'])->name('update');
 
 Route::get('/profile/password',[App\Http\Controllers\WelcomeController::class,'profile_password'])->name('profile_password');
 Route::patch('/updatePassword', [App\Http\Controllers\WelcomeController::class, 'updatePassword'])->name('updatePassword');
